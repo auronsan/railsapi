@@ -23,7 +23,7 @@ RSpec.describe 'Users API', type: :request do
 
   describe 'POST /users' do
     # valid payload
-    let(:valid_attributes) { { username: 'anshor',created_by: '2' } }
+    let(:valid_attributes) { { username: 'anshor', email:'abc', created_by: '1' } }
 
     context 'when the request is valid' do
       before { post '/users', params: valid_attributes }
@@ -38,7 +38,7 @@ RSpec.describe 'Users API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/users', params: { title: 'Foobar' } }
+      before { post '/users', params: {username: 'anshor', email:'abc' }}
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
