@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
-
+   before_action :authenticate_request!, only: [:show]
+   
+   
     def index
+   end
+
+
+    def show
         @user = User.all
         json_response(@user)
     end
