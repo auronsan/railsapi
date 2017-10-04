@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+    before_action :authenticate_request!
     before_action :set_todo, only: [:show, :update, :destroy]
     
     # GET /todos

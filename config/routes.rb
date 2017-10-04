@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :todos do
     resources :items
   end
-  resources :users
+  resources :users do
+    collection do
+      get 'confirm'
+      post 'login'
+    end
+  end
 
 end
